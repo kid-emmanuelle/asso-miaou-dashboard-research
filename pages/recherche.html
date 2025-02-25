@@ -24,10 +24,9 @@
 <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
   <div class="sidenav-header">
     <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
-       aria-hidden="true" id="iconSidenav"></i>
-    <a class="navbar-brand m-0" href="#" target="">
-      <img src="../assets/img/logo-ct-dark.png" width="26px" height="26px" class="navbar-brand-img h-100"
-           alt="main_logo"> <span class="ms-1 font-weight-bold">Asso Miaou</span> </a>
+       aria-hidden="true" id="iconSidenav"></i> <a class="navbar-brand m-0" href="#" target="">
+    <img src="../assets/img/logo-ct-dark.png" width="26px" height="26px" class="navbar-brand-img h-100"
+         alt="main_logo"> <span class="ms-1 font-weight-bold">Asso Miaou</span> </a>
   </div>
   <hr class="horizontal dark mt-0">
   <div class="collapse navbar-collapse w-auto " id="sidenav-collapse-main">
@@ -109,6 +108,20 @@
           </div>
         </div>
 
+        <!-- Recherche rapide -->
+        <div class="mb-3">
+          <label class="form-label">Recherche rapide :</label>
+          <div class="d-flex gap-2 input-group">
+            <span class="input-group-text" style="height: 40px;"><i class="fas fa-search"></i></span>
+            <input type="text" id="quick-search" class="form-control" placeholder="Rechercher dans tous les champs (client, vendeur, produit, etc.)" style="height: 40px;">
+            <button class="btn btn-outline-secondary" type="button" id="clear-search" style="height: 40px;">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <small class="form-text text-muted"> La recherche s'effectue en temps réel dans toutes les commandes
+            affichées. </small>
+        </div>
+
         <!-- Recherche par catégorie -->
         <div class="mb-3">
           <label for="search-category" class="form-label">Recherche par :</label>
@@ -117,7 +130,7 @@
               <option value="client">Membre client</option>
               <option value="actif">Membre actif</option>
               <option value="materiel">Matériel</option>
-            </select> <span class="input-group-text"><i class="fas fa-chevron-down"></i></span>
+            </select>
           </div>
         </div>
 
