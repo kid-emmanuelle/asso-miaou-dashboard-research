@@ -1,39 +1,128 @@
 # Tableau de Bord Asso Miaou
 
+Une application web de tableau de bord pour gérer les données d'une association, incluant les commandes, les membres, les groupes et le matériel.
+
 ## Aperçu
-Le Tableau de Bord Asso Miaou est une application web conçue pour gérer et visualiser les données liées à l'organisation Asso Miaou. Ce projet se compose d'une interface utilisateur construite avec HTML, CSS et JavaScript, et d'un back-end propulsé par Spring Boot.
+
+Ce projet est une application de tableau de bord pour "Asso Miaou", fournissant une interface pour visualiser et rechercher dans les données de l'association. L'application comprend :
+
+- Un tableau de bord principal avec des métriques clés et des graphiques
+- Une interface de recherche pour les commandes
+- Un design responsive qui fonctionne sur ordinateur et appareils mobiles
+- Un mode clair/sombre interchangeable
 
 ## Fonctionnalités
 
-### 1. Page d'Accueil
-- **Redirection** : Redirige automatiquement vers la page du tableau de bord.
-- **Style** : Utilise Argon Dashboard CSS pour un look moderne.
+### Page Tableau de Bord
 
-### 2. Page du Tableau de Bord
-- **Vue d'ensemble** : Affiche les métriques clés et les visualisations de données.
-- **Navigation** : Inclut une barre latérale pour une navigation facile vers d'autres sections.
-- **Contenu Dynamique** : Récupère et affiche les données depuis l'API back-end.
+- Affichage des métriques clés :
+  - Chiffre d'affaires total
+  - Nombre total de membres
+  - Nombre total de groupes
+  - Nombre total de commandes
+- Graphique de tendance des revenus montrant le chiffre d'affaires mensuel
+- Meilleurs vendeurs par valeur de commande
+- Section des activités récentes
 
-### 3. Page de Recherche
-- **Fonctionnalité de Recherche** : Permet aux utilisateurs de rechercher des commandes et de filtrer les résultats.
-- **Sélecteur de Plage de Dates** : Les utilisateurs peuvent sélectionner une plage de dates pour leur recherche.
+### Page de Recherche
 
-## Comment Exécuter le Projet
+- Recherche de commandes par plage de dates
+- Recherche rapide dans tous les champs
+- Recherche avancée par :
+  - Membre client
+  - Membre actif (vendeur)
+  - Matériel
+- Vue détaillée des commandes avec détails imprimables
+
+### Configuration
+
+- Personnalisation de la couleur de la barre latérale
+- Basculement entre mode clair/sombre
+- Mise en page responsive pour toutes les tailles d'écran
+
+## Stack Technique
+
+- HTML5, CSS3, JavaScript
+- Framework Bootstrap pour les composants UI
+- Chart.js pour la visualisation des données
+- Serveur HTTP Python pour le développement local
+
+## Intégration API
+
+L'application se connecte à une API backend fonctionnant sur `http://localhost:8080` avec les points de terminaison suivants :
+
+- `/api/commandes` - Obtenir toutes les commandes
+- `/api/membres` - Obtenir tous les membres
+- `/api/groupes` - Obtenir tous les groupes
+- `/api/membres/actifs` - Obtenir les membres actifs (vendeurs)
+- `/api/commandes/search/vendeur/{id}` - Obtenir les commandes par ID de vendeur
+
+## Comment Exécuter
 
 ### Prérequis
-- Java 11 ou supérieur
-- Maven
 
-### Étape 1 : Configurer le Back-End Spring Boot
-1. Suivez les instructions dans le fichier README.md du back-end.
-2. Assurez-vous que le back-end fonctionne sur `http://localhost:8080`.
+- Python 3.x installé sur votre système
+- Un navigateur web moderne (Chrome, Firefox, Safari, Edge)
+- Serveur API backend fonctionnant sur le port 8080 (non inclus dans ce dépôt)
 
-### Étape 2 : Configurer le Front-End
-1. Exécutez le fichier `run.py` pour démarrer le serveur front-end.
-    ```bash
-    python run.py
-    ```
-2. Ouvrez votre navigateur et accédez à `http://localhost:8001`.
+### Lancement de l'Application
 
-## Conclusion
-Ce projet fournit un tableau de bord complet pour gérer les données liées à l'organisation Asso Miaou. Suivez les étapes ci-dessus pour configurer les composants back-end et front-end et commencer à utiliser l'application.
+1. Clonez ce dépôt sur votre machine locale :
+   ```
+   git clone <url-du-dépôt>
+   cd asso-miaou-dashboard-research
+   ```
+
+2. Démarrez le serveur HTTP Python en exécutant :
+   ```
+   python run.py
+   ```
+   
+   Cela va :
+   - Démarrer un serveur web sur le port 8001
+   - Ouvrir automatiquement votre navigateur par défaut sur http://localhost:8001
+
+3. L'application devrait maintenant fonctionner dans votre navigateur. Si elle ne s'ouvre pas automatiquement, naviguez vers :
+   ```
+   http://localhost:8001
+   ```
+
+### Développement
+
+Pour modifier l'application :
+
+- Modifiez les fichiers HTML dans le répertoire `pages/`
+- Modifiez les fichiers JavaScript dans le répertoire `assets/js/`
+- Modifiez les fichiers CSS dans le répertoire `assets/css/`
+
+Après avoir effectué des modifications, rafraîchissez votre navigateur pour voir les mises à jour.
+
+## Structure du Projet 
+```
+├── assets/
+│ ├── css/ # Stylesheets
+│ ├── img/ # Images and icons
+│ ├── js/ # JavaScript files
+│ │ ├── core/ # Core libraries
+│ │ ├── plugins/ # Plugin libraries
+│ │ ├── dashboard-data.js # Dashboard data handling
+│ │ ├── recherche.js # Search functionality
+│ │ └── argon-dashboard.js # Main dashboard functionality
+├── pages/
+│ ├── dashboard.html # Main dashboard page
+│ ├── recherche.html # Search page
+│ └── tables.html # Tables page
+└── run.py # Python server script
+```
+
+## Compatibilité des Navigateurs
+
+L'application est compatible avec :
+- Chrome (dernière version)
+- Firefox (dernière version)
+- Safari (dernière version)
+- Edge (dernière version)
+
+## Licence
+
+Ce projet est sous licence MIT - voir le fichier LICENSE pour plus de détails.
