@@ -4,7 +4,7 @@ import socketserver
 import os
 
 # Set the port
-PORT = 8000
+PORT = 8001
 
 # Change directory to the project root
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
